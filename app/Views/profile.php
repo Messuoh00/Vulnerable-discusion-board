@@ -10,15 +10,35 @@
     </div>
     <div class="row w-100">
       <div class="col-2">
-        <img class="rounded-circle" src="/uploads/avatars/<?= $info['profile_picture'] ?>">
+
+
+        <img class="rounded-circle" src="/uploads/avatars/<?= $info['username'] ?>.png" onerror="this.onerror=null; this.src='/uploads/avatars/1.png'">
+        
+       
+
+         
       </div>
+
       <div class="col-10 blog__details__content">
+
+      
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                                <div>
+                                  <label class="site-btn">
+                                    <input class='input' type="file" name="userfile" hidden   size="20" onchange="this.form.submit()" /> 
+                                    upload new PFP
+                                  </label>
+                                </div>
+            </form>
+
+
         <span style="color:white; font-weight:800; font-size:20px"> Basic Information: </span>
         <div class="login__form mt-3 pl-0">
-          <form class="row" method="post" action='/register' autocomplete="off">
+          
+          <form class="row" method="post" action='/updateinfo' autocomplete="off">
             <div class="col-6">
               <div class="input__item">
-                <input type="text" name="username" required placeholder="Username..." value="<?= $info['username'] ?>">
+                <input type="text" name="username" required placeholder="Username..." value="<?= $info['username'] ?>" disabled>
                 <span class="icon_profile"></span>
               </div>
             </div>

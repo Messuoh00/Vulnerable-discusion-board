@@ -29,7 +29,7 @@ class UserController extends BaseController
 
         $posts = new ThreadsModel();
         $posts = $posts->where('author', $username)->findAll();
-
+        
         $context = [
             'info' => $user,
             'posts' => $posts,
@@ -43,6 +43,18 @@ class UserController extends BaseController
         $this->session->destroy();
         return redirect()->to('');
     }
+
+
+    // POST: /logout
+    public function updateinfo()
+    {
+        $this->session->destroy();
+        return redirect()->to('');
+    }
+
+
+
+
 
     // POST: /login
     public function login()

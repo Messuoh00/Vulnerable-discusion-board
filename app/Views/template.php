@@ -55,7 +55,7 @@
           <?php if ($session->get('username')) : ?>
             <div class="header__right d-flex align-items-center justify-content-end">
               <div class="d-flex align-items-center mr-4">
-                <a href="/profile/<?= $session->get('username') ?>" style="font-size:14px"><span class="icon_profile"></span> Abderrazak</a>
+                <a href="/profile/<?= $session->get('username') ?>" style="font-size:14px"><span class="icon_profile"></span> <?= $session->get('username') ?></a>
               </div>
               <div>
                 <form action="/logout" method="post" >

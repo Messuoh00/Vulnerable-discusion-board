@@ -48,6 +48,10 @@ $routes->post('/register', 'UserController::register', ['filter' => 'in']);
 
 $routes->post('/logout', 'UserController::logout', ['filter' => 'auth']);
 
+
+$routes->post('/upload', 'Upload::upload', ['filter' => 'auth']);
+
+
 $routes->get('/profile/(:segment)', 'UserController::profile/$1', ['filter' => 'in']);
 //$routes->post('profile/(:segment)/update', 'UserController::update/$1', ['filter' => 'auth']); // Add this line.
 //$routes->post('profile/(:segment)/update_profile_picture', 'UserController::update_profile_picture/$1', ['filter' => 'auth']); // Add this line.

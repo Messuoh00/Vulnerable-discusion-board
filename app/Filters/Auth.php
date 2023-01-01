@@ -11,7 +11,6 @@ class Auth implements FilterInterface
     public function before(RequestInterface $request, $arguments = null)
     {    
         
-         
         if (!session()->get('username')) {
    
             return redirect()->to('/');
