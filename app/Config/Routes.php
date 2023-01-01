@@ -46,7 +46,7 @@ $routes->post('/login', 'UserController::login',['filter'=>'in']);
 $routes->get('/register', 'UserController::registerIndex', ['filter' => 'in']);
 $routes->post('/register', 'UserController::register', ['filter' => 'in']);
 
-$routes->get('/logout', 'UserController::logout', ['filter' => 'auth']);
+$routes->post('/logout', 'UserController::logout', ['filter' => 'auth']);
 
 $routes->get('/profile/(:segment)', 'UserController::profile/$1', ['filter' => 'in']);
 //$routes->post('profile/(:segment)/update', 'UserController::update/$1', ['filter' => 'auth']); // Add this line.
