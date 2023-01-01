@@ -27,7 +27,7 @@ class Database extends Config
 
     /**
      * The default database connection.
-     *
+     *s
      * @var array
      */
     public $default = [
