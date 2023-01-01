@@ -12,8 +12,8 @@ class Auth implements FilterInterface
     {    
         
          
-        if (! session()->get('id')) {
-            echo 'hey';
+        if (!session()->get('username')) {
+   
             return redirect()->to('/');
         }
     }

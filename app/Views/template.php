@@ -58,7 +58,12 @@
                 <a href="/profile/<?= $session->get('username') ?>" style="font-size:14px"><span class="icon_profile"></span> Abderrazak</a>
               </div>
               <div>
-                <a href="/logout" style="font-size:14px">Logout</a>
+                <form action="/logout" method="post" >
+                       <label style="color:red;">
+                        <input type="submit" hidden value="" class="button" />
+                        logout
+                      </label>
+                </form> 
               </div>
             </div>
           <?php else: ?>
