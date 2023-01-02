@@ -17,6 +17,36 @@
 <section class="blog spad">
   <div class="container">
     <div class="row">
+    <div class="col-12 blog__details__title mt-0 mb-0">
+
+        <h2 style="font-size: 36px"> New Posts:</h2>
+
+          <form class="row" method="post" action='/forums' autocomplete="off">
+                  
+                  <div class="col-6">
+                    <div class="input__item">
+                      <input type="text" name="title" required placeholder="title" required >
+                      <span class="icon_profile"></span>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="input__item">
+                      <input type="text" name="type" required placeholder="post type..." >
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <textarea style="width:100%" name="content" class="p-2" rows=3 placeholder="content..."></textarea>
+                  </div>
+
+                  <div class="col-12 mt-3 d-flex justify-content-end">
+                    <input type="submit" class="site-btn" value="POST">
+                  </div>
+
+          </form>
+
+        
+      </div>
+
       <div class="col-12 blog__details__title mt-0 mb-0">
         <h2 style="font-size: 36px"> Latest Posts:</h2>
       </div>

@@ -19,6 +19,7 @@ class ForumsController extends BaseController
         return view('forums', $context);
     }
 
+
     // GET: /blog/:id
     public function post($id){
         $threads = new ThreadsModel();
@@ -40,17 +41,11 @@ class ForumsController extends BaseController
         return view('forum_post', $context,);
     }
 
-    public function createIndex(){
-        $context = [
-            'session' => $this->session,
-        ];
-
-        return view('create_post', $context);
-    }
+   
 
     public function create(){
         $data = [
-            'author' => $this->session['username'],
+            'author' => $_SESSION['username'],
             'title' => $this->request->getPost('title'),
             'type' => $this->request->getPost('type'),
             'content' => $this->request->getPost('content'),
@@ -60,6 +55,16 @@ class ForumsController extends BaseController
         $threadModel->insert($data);
 
         return redirect()->back();
+    }
+
+
+    public function delete($id){
+       
+
+        $threadModel = new ThreadsModel();
+        $threadModel->where('id',$id)->delete();
+
+        return redirect()->to('/forums');
     }
 
     public function comment($id){

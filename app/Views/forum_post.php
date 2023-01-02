@@ -22,13 +22,25 @@
                 <div class="blog__details__text mt-4">
                     <p><?= $post['content'] ?></p>
                 </div>
+                
                 <div class="blog__details__tags">
                     <a href="/#">Healthfood</a>
                     <a href="/#">Sport</a>
                     <a href="/#">Game</a>
                 </div>
             </div>
+            <?php if ($id['session']==$post['author'] ){?>
+
+            <form action="<?=$post['id']?>/delete" method='post'>
+
+                <input type="submit" value='delete post' class='float-left'>
+
+            </form>
+
+            <?php }?>
+            <br><br>
         </div>
+            
         <div class="row w-100">
             <div class="col-12">
                 <div class="blog__details__btns">
