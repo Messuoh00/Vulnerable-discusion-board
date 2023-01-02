@@ -27,13 +27,17 @@ class ForumsController extends BaseController
         $replies = $replies->where('thread', $id)->orderBy('comments.created', 'desc')->join('users', 'comments.author=users.username')->findAll();
 
         $post['replies'] = $replies;
+        $thing['id']=$id;
+        $thing['session']=$_SESSION['username'];
         
+      
         $context = [
+            'id' => $thing,
             'session' => $this->session,
             'post' => $post
         ];
-
-        return view('forum_post', $context);
+      
+        return view('forum_post', $context,);
     }
 
     public function createIndex(){
@@ -59,15 +63,30 @@ class ForumsController extends BaseController
     }
 
     public function comment($id){
+      
         $data = [
             'thread' => $id,
             'author' => $this->session->get('username'),
             'content' => $this->request->getPost('comment'),
         ];
-
+   
         $comments = new CommentsModel();
         $comments->insert($data);
 
-        return json_encode(['success'=> 1]);
+       
+        return redirect()->back();
+    
+    }
+
+
+    public function deletecomment($id){
+        
+       
+        $comments = new CommentsModel();
+        $comments->where('id', $id)->delete();
+
+       
+        return redirect()->back();
+    
     }
 }
