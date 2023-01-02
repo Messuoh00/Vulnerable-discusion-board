@@ -53,13 +53,18 @@ $routes->post('/upload', 'Upload::upload', ['filter' => 'auth']);
 
 
 $routes->get('/profile/(:segment)', 'UserController::profile/$1', ['filter' => 'in']);
+
+
+$routes->post('/updateinfo', 'UserController::updateinfo', ['filter' => 'in']);
 //$routes->post('profile/(:segment)/update', 'UserController::update/$1', ['filter' => 'auth']); // Add this line.
 //$routes->post('profile/(:segment)/update_profile_picture', 'UserController::update_profile_picture/$1', ['filter' => 'auth']); // Add this line.
 
 
 $routes->get('/forums', 'ForumsController::index',['filter'=>'in']);
 $routes->get('/forums/(:num)', 'ForumsController::post/$1', ['filter' => 'in']);
-$routes->post('/forums/(:num)/comment', 'ForumsController::comment/$1', ['filter' => 'auth']);
+$routes->post('/forums/(:num)/comment', 'ForumsController::comment/$1');
+$routes->post('/forums/(:num)/deletecomment', 'ForumsController::deletecomment/$1');
+
 
 $routes->get('/forums/create', 'ForumsController::createIndex', ['filter' => 'in']);
 $routes->post('/forums/create', 'ForumsController::create', ['filter' => 'in']);

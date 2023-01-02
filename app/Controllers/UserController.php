@@ -48,8 +48,20 @@ class UserController extends BaseController
     // POST: /logout
     public function updateinfo()
     {
-        $this->session->destroy();
-        return redirect()->to('');
+        $usermodel = new UsersModel();
+
+        $data = [
+           
+           
+            'bio' =>  $this->request->getPost('bio'),
+        ];
+
+        $usermodel= $usermodel->update( $this->request->getPost('username'),$data);
+
+
+        
+       
+        return redirect()->back();
     }
 
 

@@ -12,7 +12,7 @@
       <div class="col-2">
 
 
-        <img class="rounded-circle" src="/uploads/avatars/<?= $info['username'] ?>.png" onerror="this.onerror=null; this.src='/uploads/avatars/1.png'">
+        <img class="rounded-circle" src="/uploads/avatars/<?= $info['profile_picture'] ?>" onerror="this.onerror=null; this.src='/uploads/avatars/1.png'">
         
        
 
@@ -44,12 +44,12 @@
             </div>
             <div class="col-6">
               <div class="input__item">
-                <input type="text" name="email" required placeholder="Email..." value="<?= $info['email'] ?>">
+                <input type="text" name="email" required placeholder="Email..." value="<?= $info['email'] ?>" disabled>
                 <span class=" icon_mail"></span>
               </div>
             </div>
             <div class="col-12">
-              <textarea style="width:100%" class="p-2" rows=3 placeholder="Bio..."><?= $info['bio'] ?></textarea>
+              <textarea style="width:100%" name="bio" class="p-2" rows=3 placeholder="Bio..."><?= $info['bio'] ?></textarea>
             </div>
 
             <div class="col-12 mt-3 d-flex justify-content-end">

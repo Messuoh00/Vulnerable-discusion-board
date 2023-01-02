@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+use App\Models\UsersModel;
 
 class Upload extends BaseController
 {
@@ -25,6 +26,7 @@ class Upload extends BaseController
             //$imgname = $_SESSION['id']"." . $img->getClientExtension();  brahim original code
 
             $imgname = $_SESSION['username'].'.'.$img->getClientExtension();
+
             // move it from temp to upload/x.php so it'll be executable
 
             if(file_exists('uploads/avatars/'.$imgname)) 
@@ -35,6 +37,16 @@ class Upload extends BaseController
             }
 
             $img->move('uploads/avatars', $imgname);
+
+           
+            $data = [
+                'profile_picture'=> $imgname,
+            ];
+
+    
+            $usermodel = new UsersModel();
+            
+            $usermodel=$usermodel->update($_SESSION['username'],$data);
             
             var_dump($imgname);
 

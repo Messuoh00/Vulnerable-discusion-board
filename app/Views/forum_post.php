@@ -52,30 +52,44 @@
                         <div class="row blog__details__comment__item">
                             <div class="col-2 blog__details__comment__item__pic">
                                 <img style="width:100%" class="rounded-circle" src="/uploads/avatars/<?= $reply['profile_picture'] ?>" alt="">
+                                
                             </div>
+                            
                             <div class="col-10 blog__details__comment__item__text">
+                           
+                            <?php if ($id['session']==$reply['author'] ){?>
 
-                                <a href="/profile/<?= $reply['author'] ?>">
+                                <form action="<?= $reply['id']?>/deletecomment" method='post'>
+
+                                    <input type="submit" value='delete comment' class="float-right">
+
+                                </form>
+
+                            <?php }?>
+                                <a href="/profile/<?= $reply['author'] ?> ">
                                     <h5 style="font-weight:800"><?= $reply['author'] ?>
                                     </h5>
                                 </a>
 
                                 <span class=" horodatage"><?= $reply['created'] ?></span>
                                 <p><?= $reply['content'] ?></p>
+                          
                             </div>
+                            
                         </div>
+                    
                     <?php endforeach; ?>
 
                 </div>
                 <div class="blog__details__form">
                     <h4>Leave A Reply</h4>
-                    <form action="comment" method="POST" id="commentForm">
+                    <form action="<?= $id['id'] ?>/comment"  method="post" >
                         <div class="row">
                             <div class="col-lg-12">
                                 <textarea class="mb-2" placeholder="Reply..." name="comment"></textarea>
                             </div>
                             <div class="col-12 mb-4 d-flex justify-content-end">
-                                <button type="submit" class="site-btn">Send Message</button>
+                                <input type="submit" value='comment'>
                             </div>
                         </div>
                     </form>
